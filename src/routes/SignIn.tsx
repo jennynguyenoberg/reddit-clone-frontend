@@ -1,5 +1,6 @@
-import { ActionFunctionArgs, Form, useActionData } from "react-router-dom"
+import { ActionFunctionArgs, Form, redirect, useActionData } from "react-router-dom"
 import classes from './SignUp.module.css'
+import auth from "../lib/auth"
 
 export const action = async (args: ActionFunctionArgs) => {
   const { request } = args
@@ -24,9 +25,9 @@ export const action = async (args: ActionFunctionArgs) => {
   }
 
   const { token } = await response.json()
-  console.log(token)
+  auth.signIn(token)
 
-  return null;
+  return redirect('/')
 }
 
 const SignIn = () => {
