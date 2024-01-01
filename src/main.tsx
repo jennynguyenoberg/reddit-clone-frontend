@@ -1,13 +1,28 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import App from './App.tsx'
 import './index.css'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import Index from './routes/Index.tsx'
 
 const router = createBrowserRouter([
   {
-    path: '/',
-    element: <App />
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        index: true,
+        element: <Index />
+      },
+      {
+        path: "sign-in",
+        element: <h1>Sign in page</h1>
+      },
+      {
+        path: "sign-up",
+        element: <h1>Sign up page</h1>
+      }
+    ]
   }
 ])
 
