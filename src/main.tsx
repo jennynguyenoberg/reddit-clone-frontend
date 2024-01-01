@@ -4,6 +4,7 @@ import App from './App.tsx'
 import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Index from './routes/Index.tsx'
+import SignUp, { action as signUpAction} from './routes/SignUp.tsx'
 
 const router = createBrowserRouter([
   {
@@ -20,7 +21,8 @@ const router = createBrowserRouter([
       },
       {
         path: "sign-up",
-        element: <h1>Sign up page</h1>
+        action: signUpAction,
+        element: <SignUp />
       }
     ]
   }

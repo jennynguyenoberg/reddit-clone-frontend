@@ -3,7 +3,7 @@ import classes from './Header.module.css';
 
 const Header = () => (
     <div className={classes.header}>
-        <h1>Changedit</h1>
+        <h1>Reddit</h1>
         <div className={classes.headerActions}>
             <Link to="/sign-up">
                 <button>Sign up</button>
