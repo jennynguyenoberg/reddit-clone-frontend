@@ -8,6 +8,7 @@ import SignUp, { action as signUpAction} from './routes/SignUp.tsx'
 import SignIn, { action as signInAction } from './routes/SignIn.tsx'
 import auth from './lib/auth.ts'
 import CreatePost, { action as createPostAction } from './routes/CreatePost.tsx'
+import RequireAuth from './components/RequireAuth.tsx'
 
 const router = createBrowserRouter([
   {
@@ -36,9 +37,14 @@ const router = createBrowserRouter([
         }
       },
       {
-        path: 'create-post',
-        action: createPostAction,
-        element: <CreatePost />
+        element: <RequireAuth />,
+        children: [
+          {
+            path: 'create-post',
+            action: createPostAction,
+            element: <CreatePost />
+          }    
+        ]
       },
     ]
   }
