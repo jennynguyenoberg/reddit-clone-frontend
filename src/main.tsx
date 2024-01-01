@@ -5,6 +5,7 @@ import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Index from './routes/Index.tsx'
 import SignUp, { action as signUpAction} from './routes/SignUp.tsx'
+import SignIn, { action as signInAction} from './routes/SignIn.tsx'
 
 const router = createBrowserRouter([
   {
@@ -17,7 +18,8 @@ const router = createBrowserRouter([
       },
       {
         path: "sign-in",
-        element: <h1>Sign in page</h1>
+        action: signInAction,
+        element: <SignIn />
       },
       {
         path: "sign-up",
