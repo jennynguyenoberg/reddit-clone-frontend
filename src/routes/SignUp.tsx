@@ -1,5 +1,6 @@
 import { ActionFunctionArgs, Form, redirect, useActionData } from "react-router-dom"
 import classes from './SignUp.module.css'
+import { ActionData } from "../types"
 
 export const action = async (args: ActionFunctionArgs) => {
   const { request } = args
@@ -32,7 +33,7 @@ export const action = async (args: ActionFunctionArgs) => {
 }
 
 const SignUp = () => {
-  const error = useActionData() as { message: string } | undefined
+  const error = useActionData() as ActionData
 
   return (
     <div className={classes.signupForm}>
