@@ -9,17 +9,16 @@ export const loader = async () => {
     }
   })
 
-  return {
-    posts: await response.json()
-  }
+  return await response.json()
 }
 
 const Index = () => {
-  const data = useLoaderData() as {posts: Post[]} | undefined
+  const data = useLoaderData() as { posts: Post[], totalPages: number } | undefined
   
   return (
       <div>
-        {data?.posts.map(post => <PostListItem post={post} key={post._id} />)}
+      {data?.posts.map(post => <PostListItem post={post} key={post._id} />)}
+      <p>Page: {data?.totalPages}</p>
       </div>
   )
 }
