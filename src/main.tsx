@@ -9,6 +9,7 @@ import SignIn, { action as signInAction } from './routes/SignIn.tsx'
 import auth from './lib/auth.ts'
 import CreatePost, { action as createPostAction } from './routes/CreatePost.tsx'
 import RequireAuth from './components/RequireAuth.tsx'
+import ShowPost, { loader as showPostLoader } from './routes/ShowPost.tsx'
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,11 @@ const router = createBrowserRouter([
         index: true,
         loader: indexLoader,
         element: <Index />
+      },
+      {
+        path: '/posts/:id',
+        loader: showPostLoader,
+        element: <ShowPost />
       },
       {
         path: "sign-in",

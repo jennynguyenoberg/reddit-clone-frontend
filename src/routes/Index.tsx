@@ -19,7 +19,7 @@ const Index = () => {
   
   return (
       <div>
-        {data?.posts.map(post => <PostListItem post={post} key={post._id}/>)}
+        {data?.posts.map(post => <PostListItem post={post} key={post._id} />)}
       </div>
   )
 }
