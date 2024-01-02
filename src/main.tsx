@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
 import { RouterProvider, createBrowserRouter, redirect } from 'react-router-dom'
-import Index from './routes/Index.tsx'
+import Index, { loader as indexLoader } from './routes/Index.tsx'
 import SignUp, { action as signUpAction} from './routes/SignUp.tsx'
 import SignIn, { action as signInAction } from './routes/SignIn.tsx'
 import auth from './lib/auth.ts'
@@ -17,6 +17,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
+        loader: indexLoader,
         element: <Index />
       },
       {
