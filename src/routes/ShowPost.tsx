@@ -1,5 +1,6 @@
 import { Link, LoaderFunctionArgs, useLoaderData } from "react-router-dom";
 import { Post } from "../types";
+import classes from './ShowPost.module.css'
 import CommentForm from "../components/CommentForm";
 import VoteComponent from "../components/Vote"
 
@@ -28,19 +29,22 @@ const ShowPost = () => {
 
   return (
     <>
-      <div>
+      <div className={classes.post}>
         <VoteComponent post={post}/>
-        <div>
+        <div className={classes.postInfo}>
           { post.link ? (
             <Link to={post.link}>
-              <h2>{post.title}<span>({post.link})</span></h2>
+              <h2>
+                {post.title}
+                <span className={classes.postUrl}>({post.link})</span>
+              </h2>
             </Link>
           ) : (
             <h2>{post.title}</h2>
           )}
           <p>by {post.author.userName}</p>
           { post.body && (
-            <div>
+            <div className={classes.postBody}>
               <p>{post.body}</p>
             </div>
           )}
