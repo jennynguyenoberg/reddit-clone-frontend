@@ -12,5 +12,5 @@ export default {
   signIn,
   signOut,
   isSignedIn,
-  getJWT
+  getJWT,
 }

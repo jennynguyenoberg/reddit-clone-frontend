@@ -1,31 +1,32 @@
-import { Link, LoaderFunctionArgs, useLoaderData } from "react-router-dom";
-import { Post } from "../types";
-import classes from "./ShowPost.module.css";
-import CommentForm from "../components/CommentForm";
-import DeleteComment from "../components/DeleteComment";
-import VoteComponent from "../components/Vote";
-import DeletePost from "../components/DeletePost";
+import { Link, LoaderFunctionArgs, useLoaderData } from 'react-router-dom'
+import { Post } from '../types'
+import classes from './ShowPost.module.css'
+import CommentForm from '../components/CommentForm'
+import DeleteComment from '../components/DeleteComment'
+import VoteComponent from '../components/Vote'
+import DeletePost from '../components/DeletePost'
 
 export const loader = async (args: LoaderFunctionArgs) => {
-  const { params } = args;
+  const { params } = args
 
-  const { id } = params;
+  const { id } = params
 
   const response = await fetch(
-    import.meta.env.VITE_BACKEND_URL + "/posts/" + id,
+    import.meta.env.VITE_BACKEND_URL + '/posts/' + id,
     {
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
-    }
-  );
+    },
+  )
 
-  const posts = await response.json();
+  const posts = await response.json()
 
-  return posts;};
+  return posts
+}
 
 const ShowPost = () => {
-  const post = useLoaderData() as Post;
+  const post = useLoaderData() as Post
 
   // const commentFetcher = useFetcher({key: "comment-form-" + post._id})
 
@@ -50,20 +51,26 @@ const ShowPost = () => {
               <p>{post.body}</p>
             </div>
           )}
-              {post.image && (
-                <img
-                  className={classes.postImage}
-                  src={`${import.meta.env.VITE_BACKEND_URL}/files/${
-                    post.image.id
-                  }`}
-                />
+          {post.image && (
+            <img
+              className={classes.postImage}
+              src={`${import.meta.env.VITE_BACKEND_URL}/files/${post.image.id}`}
+            />
           )}
-          <DeletePost post={post}/>
+          <DeletePost post={post} />
         </div>
       </div>
       <CommentForm postId={post._id} />
-      { post.comments?.map(comment => <><p key={comment._id}>{comment.body} - {comment.author.userName}</p> <DeleteComment post={post} comment={comment} /> </>) }    </>
-  );
-};
+      {post.comments?.map((comment) => (
+        <>
+          <p key={comment._id}>
+            {comment.body} - {comment.author.userName}
+          </p>{' '}
+          <DeleteComment post={post} comment={comment} />{' '}
+        </>
+      ))}{' '}
+    </>
+  )
+}
 
-export default ShowPost;
+export default ShowPost

@@ -1,4 +1,9 @@
-import { ActionFunctionArgs, Form, redirect, useLocation } from 'react-router-dom'
+import {
+  ActionFunctionArgs,
+  Form,
+  redirect,
+  useLocation,
+} from 'react-router-dom'
 import { Post, Comment } from '../types'
 import auth from '../lib/auth'
 import classes from './DeleteComment.module.css'
@@ -12,7 +17,7 @@ export const action = async (args: ActionFunctionArgs) => {
     import.meta.env.VITE_BACKEND_URL + `/posts/${postId}/comments/${commentId}`,
     {
       headers: {
-        'Authorization': `Bearer ${auth.getJWT()}`,
+        Authorization: `Bearer ${auth.getJWT()}`,
       },
       method: 'DELETE',
     },
@@ -30,9 +35,15 @@ const DeleteComment = ({ post, comment }: { post: Post; comment: Comment }) => {
   const location = useLocation()
 
   return (
-    <Form method='delete' action={`/posts/${post._id}/comments/${comment._id}`}>
-      <input type="hidden" name='returnTo' value={location.pathname + location.search} />
-      <button className={classes.button} type='submit'>Delete</button>
+    <Form method="delete" action={`/posts/${post._id}/comments/${comment._id}`}>
+      <input
+        type="hidden"
+        name="returnTo"
+        value={location.pathname + location.search}
+      />
+      <button className={classes.button} type="submit">
+        Delete
+      </button>
     </Form>
   )
 }

@@ -24,12 +24,14 @@
   margin: 5px 0;
 }
 
-.post-info span, .post-body {
+.post-info span,
+.post-body {
   display: block;
   margin-top: 10px;
 }
 
-.comment-form h2, .comments h2 {
+.comment-form h2,
+.comments h2 {
   margin-top: 20px;
 }
 

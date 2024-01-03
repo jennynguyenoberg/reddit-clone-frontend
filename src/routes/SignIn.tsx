@@ -1,7 +1,12 @@
-import { ActionFunctionArgs, Form, redirect, useActionData } from "react-router-dom"
+import {
+  ActionFunctionArgs,
+  Form,
+  redirect,
+  useActionData,
+} from 'react-router-dom'
 import classes from './SignUp.module.css'
-import auth from "../lib/auth"
-import { ActionData } from "../types"
+import auth from '../lib/auth'
+import { ActionData } from '../types'
 
 export const action = async (args: ActionFunctionArgs) => {
   const { request } = args
@@ -16,12 +21,12 @@ export const action = async (args: ActionFunctionArgs) => {
       'Content-Type': 'application/json',
     },
     method: 'POST',
-    body: JSON.stringify({username, password})
+    body: JSON.stringify({ username, password }),
   })
 
   if (!response.ok) {
     const { message } = await response.json()
-    
+
     return { message }
   }
 
@@ -37,9 +42,13 @@ const SignIn = () => {
   return (
     <div className={classes.signupForm}>
       <h2>Sign in to Reddit</h2>
-      <Form method='post'>
-        {error && <p><b>Error</b> {error.message}</p>}
-        
+      <Form method="post">
+        {error && (
+          <p>
+            <b>Error</b> {error.message}
+          </p>
+        )}
+
         <div className={classes.formGroup}>
           <label htmlFor="username">Username</label>
           <input type="text" name="username" id="username" required />

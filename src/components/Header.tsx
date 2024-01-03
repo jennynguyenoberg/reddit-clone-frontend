@@ -10,16 +10,16 @@ const Header = () => {
     <div className={classes.header}>
       <h1>Reddit</h1>
       <div className={classes.headerActions}>
-        {isAuthenticated ?
+        {isAuthenticated ? (
           <>
-            <Link to='/create-post'>
+            <Link to="/create-post">
               <button>New post</button>
             </Link>
-            <fetcher.Form method='post' action='/sign-out'>
-              <button type='submit'>Sign out</button>
+            <fetcher.Form method="post" action="/sign-out">
+              <button type="submit">Sign out</button>
             </fetcher.Form>
           </>
-          :
+        ) : (
           <>
             <Link to="/sign-up">
               <button>Sign up</button>
@@ -28,7 +28,7 @@ const Header = () => {
               <button>Sign in</button>
             </Link>
           </>
-        }
+        )}
       </div>
     </div>
   )

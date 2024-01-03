@@ -1,7 +1,7 @@
 import { Comment } from '../types'
 import classes from './Comment.module.css'
 
-const CommentComponent = ({comment}: {comment: Comment}) => {
+const CommentComponent = ({ comment }: { comment: Comment }) => {
   return (
     <div className={classes.comment}>
       <p className={classes.commentAuthor}>{comment.author.userName}</p>
@@ -10,4 +10,4 @@ const CommentComponent = ({comment}: {comment: Comment}) => {
   )
 }
 
-export default CommentComponent;
+export default CommentComponent
