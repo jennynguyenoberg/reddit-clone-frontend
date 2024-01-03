@@ -4,6 +4,7 @@ import classes from "./ShowPost.module.css";
 import CommentForm from "../components/CommentForm";
 import DeleteComment from "../components/DeleteComment";
 import VoteComponent from "../components/Vote";
+import DeletePost from "../components/DeletePost";
 
 export const loader = async (args: LoaderFunctionArgs) => {
   const { params } = args;
@@ -56,7 +57,8 @@ const ShowPost = () => {
                     post.image.id
                   }`}
                 />
-              )}
+          )}
+          <DeletePost post={post}/>
         </div>
       </div>
       <CommentForm postId={post._id} />

@@ -13,6 +13,7 @@ import ShowPost, { loader as showPostLoader } from './routes/ShowPost.tsx'
 import { action as createCommentAction } from './components/CommentForm.tsx'
 import { action as voteAction } from './components/Vote.tsx';
 import { action as deleteCommentAction } from './components/DeleteComment'
+import { action as deletePostAction } from "./components/DeletePost";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,12 @@ const router = createBrowserRouter([
         path: '/posts/:id',
         loader: showPostLoader,
         element: <ShowPost />
+      },
+      {
+        path: "posts",
+        action: () => {
+          return redirect("/");
+        },
       },
       {
         path: "sign-in",
@@ -65,6 +72,10 @@ const router = createBrowserRouter([
           {
             path: '/posts/:postId/comments/:commentId',
             action: deleteCommentAction
+          },
+          {
+            path: "/posts/:postId/delete-post",
+            action: deletePostAction,
           }
         ]
       },
