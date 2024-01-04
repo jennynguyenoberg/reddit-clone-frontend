@@ -59,7 +59,9 @@ const CreatePost = () => {
         </div>
 
         <div>
-          <button className={styles.button} type="submit">Create post</button>
+          <button className={styles.button} type="submit">
+            Create post
+          </button>
         </div>
       </Form>
     </div>

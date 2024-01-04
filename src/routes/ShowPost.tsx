@@ -20,7 +20,7 @@ export const loader = async (args: LoaderFunctionArgs) => {
       },
     },
   )
-  
+
   return response.json()
 }
 

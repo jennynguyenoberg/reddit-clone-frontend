@@ -38,7 +38,9 @@ const DeletePost = ({ post }: { post: Post }) => {
         value={location.pathname + location.search}
         name="returnTo"
       />
-      <button className={classes.button} type="submit">Delete</button>
+      <button className={classes.button} type="submit">
+        Delete
+      </button>
     </Form>
   )
 }
