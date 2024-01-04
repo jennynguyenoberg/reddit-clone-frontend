@@ -79,3 +79,8 @@
 .comment-author {
   font-weight: bold;
 }
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}

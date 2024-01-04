@@ -5,6 +5,7 @@ import {
   useActionData,
 } from 'react-router-dom'
 import classes from './CreatePost.module.css'
+import styles from '../components/DeleteComment.module.css'
 import { ActionData } from '../types'
 import auth from '../lib/auth'
 
@@ -56,12 +57,9 @@ const CreatePost = () => {
           <label htmlFor="body">Body (optional)</label>
           <textarea name="body" id="body" />
         </div>
-        <div className={classes.formGroup}>
-          <label htmlFor="image">Image (optional)</label>
-          <input type="file" name="image" id="image" accept="image/*" />
-        </div>
+
         <div>
-          <button type="submit">Create post</button>
+          <button className={styles.button} type="submit">Create post</button>
         </div>
       </Form>
     </div>

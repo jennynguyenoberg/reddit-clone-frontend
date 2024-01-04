@@ -1,6 +1,7 @@
 import { Link, LoaderFunctionArgs, useLoaderData } from 'react-router-dom'
 import { Post } from '../types'
 import classes from './ShowPost.module.css'
+import styles from '../components/DeleteComment.module.css'
 import CommentForm from '../components/CommentForm'
 import DeleteComment from '../components/DeleteComment'
 import VoteComponent from '../components/Vote'
@@ -19,10 +20,8 @@ export const loader = async (args: LoaderFunctionArgs) => {
       },
     },
   )
-
-  const posts = await response.json()
-
-  return posts
+  
+  return response.json()
 }
 
 const ShowPost = () => {
@@ -57,7 +56,12 @@ const ShowPost = () => {
               src={`${import.meta.env.VITE_BACKEND_URL}/files/${post.image.id}`}
             />
           )}
-          <DeletePost post={post} />
+          <div className={classes.buttons}>
+            <DeletePost post={post} />
+            <Link to={`/posts/${post._id}/update-post`}>
+              <button className={styles.button}>Update</button>
+            </Link>
+          </div>
         </div>
       </div>
       <CommentForm postId={post._id} />
