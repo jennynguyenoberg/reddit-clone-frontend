@@ -13,10 +13,10 @@ export const action = async (args: ActionFunctionArgs) => {
 
   const formData = await request.formData()
 
-  const username = formData.get('username')
+  const username = formData.get('userName')
   const password = formData.get('password')
 
-  const response = await fetch(import.meta.env.VITE_BACKEND_URL + '/login', {
+  const response = await fetch(import.meta.env.VITE_BACKEND_URL + '/logIn', {
     headers: {
       'Content-Type': 'application/json',
     },
