@@ -17,7 +17,7 @@ export const action = async (args: ActionFunctionArgs) => {
   const passwordConfirmation = formData.get('password_confirmation')
 
   if (password !== passwordConfirmation) {
-    return { message: 'Passwords don\t match' }
+      return { message: 'Passwords don\'t match'}
   }
 
   const response = await fetch(import.meta.env.VITE_BACKEND_URL + '/register', {
@@ -25,12 +25,11 @@ export const action = async (args: ActionFunctionArgs) => {
       'Content-Type': 'application/json',
     },
     method: 'POST',
-    body: JSON.stringify({ username, password }),
+    body: JSON.stringify({ username, password }) 
   })
 
   if (!response.ok) {
     const { message } = await response.json()
-
     return { message }
   }
 
